@@ -1,0 +1,23 @@
+<p style="color: green"><%= notice %></p>
+<div class="margin-y-3">
+  <div class="margin-top-2">
+    <strong class="font-size-2">Title: </strong>
+    <p><%= @post.title %></p>
+  </div>
+
+  <div class="margin-top-2">
+    <strong class="font-size-2">Body:</strong>
+    <p><%= @post.body %></p>
+  </div>
+
+  <div class="margin-top-2">
+    <span class="bg-indigo-2 padding-2 border-radius-2"><%= @post.category %><span>
+  </div>
+</div>
+
+<div>
+  <%= link_to "Edit this post", edit_post_path(@post), data: { turbo_frame: 'modal' } %> |
+  <%= link_to "Back to posts", posts_path %>
+
+  <%= button_to "Destroy this post", post_path(@post, format: :html), method: :delete, class: "btn btn--light" %>
+</div>

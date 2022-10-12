@@ -1,0 +1,10 @@
+<%= turbo_frame_tag "modal" do %>
+  <div class="modal" data-controller="modal" 
+      data-action="turbo:submit-end->modal#submitEnd click@window->modal#closeOutside">
+    <div class="modal__content" data-modal-target="modal">
+      <a class="modal__close" data-action="modal#hideModal">✖</a>
+      <h2>New post</h2>
+      <%= render "form", post: @post %>
+    </div>
+  </div>
+<% end %>

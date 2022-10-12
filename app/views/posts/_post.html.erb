@@ -1,0 +1,21 @@
+<div id="<%= dom_id post %>" class="table-row">
+  <div class="table-cell-body">
+    <%= link_to post.title, post %>
+  </div>
+
+  <div class="table-cell-body">
+    <%= post.body %>
+  </div>
+
+  <div class="table-cell-body">
+    <%= post.category %>
+  </div>
+
+  <div class="table-cell-body">
+    <%= link_to "Edit", edit_post_path(post), data: { turbo_frame: 'modal' } %>
+  </div>
+
+  <div class="table-cell-body">
+    <%= link_to "Delete", post_path(post), data: { 'turbo-method': :delete, 'turbo-confirm': "Are you sure?" } %>
+  </div>
+</div>

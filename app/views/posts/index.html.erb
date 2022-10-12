@@ -1,0 +1,20 @@
+<p style="color: green"><%= notice %></p>
+
+<h2 class="margin-y-4">All Posts</h2>
+
+<div class="table width-100 margin-top-4">
+  <div class="table-header-group">
+    <div class="table-row">
+      <div class="table-cell-header">Title</div>
+      <div class="table-cell-header">Body</div>
+      <div class="table-cell-header">Category</div>
+      <div class="table-cell-header"></div>
+      <div class="table-cell-header"></div>
+    </div>
+  </div>
+  <%= turbo_frame_tag "posts", class: "table-row-group" do %>
+    <%= render @posts %>
+  <% end %>
+</div>
+
+<%= link_to "New post", new_post_path, class: "btn btn--primary margin-top-4", data: { turbo_frame: 'modal' }  %>
