@@ -25,7 +25,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.turbo_stream { render turbo_stream: turbo_stream.append('posts', partial: 'posts/post', locals: {post: @post}) }
+        format.turbo_stream { flash.now[:notice] = "Quote was successfully created." }
         format.html { redirect_to post_url(@post), notice: "Post was successfully created." }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -37,7 +37,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.turbo_stream { render turbo_stream: turbo_stream.replace(@post, partial: "posts/post", locals: {post: @post}) }
+        format.turbo_stream { flash.now[:notice] = "Quote was successfully updated." }
         format.html { redirect_to post_url(@post), notice: "Post was successfully updated." }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -51,7 +51,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }
-      format.turbo_stream { render turbo_stream: turbo_stream.remove(@post) }
+      format.turbo_stream { flash.now[:notice] = "Quote was successfully destroyed." }
     end
   end
 

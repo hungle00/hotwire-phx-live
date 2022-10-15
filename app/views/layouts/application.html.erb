@@ -11,6 +11,9 @@
   </head>
 
   <body>
+    <div id="flash" class="flash flash-danger">
+      <%= render "layouts/flash" %>
+    </div>
     <%= turbo_frame_tag "modal" %>
     <main class="container">
       <%= yield %>
